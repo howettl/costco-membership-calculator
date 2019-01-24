@@ -1,5 +1,10 @@
 package com.howettl.calculator
 
-fun main(args: Array<String>) {
-    Calculator().run()
+import com.xenomachina.argparser.ArgParser
+import com.xenomachina.argparser.mainBody
+
+fun main(args: Array<String>) = mainBody {
+    ArgParser(args).parseInto(::Args).run {
+        Calculator(transactionsFolder).calculate()
+    }
 }
