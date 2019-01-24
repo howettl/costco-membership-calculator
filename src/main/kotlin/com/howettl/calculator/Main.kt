@@ -5,6 +5,12 @@ import com.xenomachina.argparser.mainBody
 
 fun main(args: Array<String>) = mainBody {
     ArgParser(args).parseInto(::Args).run {
-        Calculator(transactionsFolder).calculate()
+        Calculator(
+            transactionsFolder,
+            basicMembershipCost.toDouble(),
+            executiveMembershipCost.toDouble(),
+            taxRate.toDouble(),
+            totalSpending.toDouble()
+        ).calculate()
     }
 }
